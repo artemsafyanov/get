@@ -6,12 +6,13 @@ amplitude = 3.2
 signal_frequency = 10
 sampling_frequency = 1000
 
-try:
-    dac = r2r.R2R_DAC([16, 20, 21, 25, 26, 17, 27, 22], 3.183, True)
+if __name__ == "__main__":
+    try:
+        dac = r2r.R2R_DAC([16, 20, 21, 25, 26, 17, 27, 22], 3.183, True)
 
-    while True:
-        dac.set_voltage(sg.get_sin_wave_amplitude(signal_frequency, time.time()) * amplitude)
-        sg.wait_for_sampling_period(sampling_frequency)
+        while True:
+            dac.set_voltage(sg.get_sin_wave_amplitude(signal_frequency, time.time()) * amplitude)
+            sg.wait_for_sampling_period(sampling_frequency)
     
-finally:
-    dac.deinit()
+    finally:
+        dac.deinit()
