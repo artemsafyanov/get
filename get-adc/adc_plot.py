@@ -10,8 +10,8 @@ def plot_voltage_vs_time(time, voltage, max_voltage):
     plt.ylabel("Напряжение, В")
     plt.title("График зависимости напряжения на входе АЦП от времени")
     plt.grid()
-    plt.xlim(0, 3)
     plt.ylim(0, max_voltage + 0.5)
+    plt.savefig("graph.png")
     plt.show()
 
 def plot_sampling_period_hist(time_values):
